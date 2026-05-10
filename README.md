@@ -1,6 +1,6 @@
 # MetalXR Client
 
-## Initially, I simply forked this repository so it wouldn't get lost. As a result, I'm now trying to build it to run and test it.
+## It was a bit difficult to build this project, as I have no experience with languages ​​other than Python. Well.. it working.
 
 
 Original repos: 
