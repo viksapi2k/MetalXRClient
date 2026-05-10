@@ -42,6 +42,7 @@ jobs:
           unityVersion: ${{ steps.unity-version.outputs.version }}
           targetPlatform: Android
           androidExportType: androidPackage
+          customParameters: -androidTargetArchitectures ARM64
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
