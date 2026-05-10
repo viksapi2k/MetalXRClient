@@ -41,6 +41,8 @@ jobs:
           unityVersion: ${{ steps.unity-version.outputs.version }}
           targetPlatform: Android
           androidExportType: androidPackage
+          scenes: |
+            Assets/Scenes/PreOC.unity
           customParameters: -androidTargetArchitectures ARM64
 
       - name: Upload APK
