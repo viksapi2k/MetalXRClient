@@ -1,27 +1,22 @@
 using UnityEditor;
 using UnityEngine;
-using System.Linq;
 
-public class ForceSingleSceneBuild
+[InitializeOnLoad]
+public class ForceSceneLateFix
 {
-    [InitializeOnLoadMethod]
+    static ForceSceneLateFix()
+    {
+        EditorApplication.delayCall += Setup;
+    }
+
     static void Setup()
     {
         const string scenePath = "Assets/Scenes/PreOC.unity";
 
-        var sceneAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(scenePath);
+        var scene = new EditorBuildSettingsScene(scenePath, true);
 
-        if (sceneAsset == null)
-        {
-            Debug.LogError("Scene not found: " + scenePath);
-            return;
-        }
+        EditorBuildSettings.scenes = new[] { scene };
 
-        EditorBuildSettings.scenes = new[]
-        {
-            new EditorBuildSettingsScene(scenePath, true)
-        };
-
-        Debug.Log("Forced build scene: " + scenePath);
+        Debug.Log("Forced BUILD scene: " + scenePath);
     }
 }
