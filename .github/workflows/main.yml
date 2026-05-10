@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
-      - master
+      - Dependencies-fix
 
 jobs:
   build-android:
